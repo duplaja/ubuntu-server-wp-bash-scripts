@@ -1,3 +1,4 @@
 #Useful Websites
 
 - http://paletton.com/ : Lets you find a nice color palatte for site being designed
+- https://freedns.afraid.org/ : Free DNS Site. Point nameservers to these
