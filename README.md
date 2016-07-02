@@ -1,6 +1,7 @@
 # ubuntu-server-wp-bash-scripts
 
-# .htaccess (download, and keep in the same folder as your setupsite.sh script)
+# .htaccess 
+(download, and keep in the same folder as your setupsite.sh script)
  
  
 # setupsite.sh : 
@@ -16,3 +17,11 @@ Designed for Ubuntu 16.04 or other Debian system. Requires LetsEncrypt and WP-CL
 - Removes Akismet, Hello Dolly
 - Removes Default Themes
 - Copies .htaccess to active folder
+
+# .backup-site-to-s3
+
+Requires the following:
+- AWS account
+- S3 bucket pre-created
+- AWS-CLI installed
+- AWS-CLI configure run (set your keys, account, etc)
