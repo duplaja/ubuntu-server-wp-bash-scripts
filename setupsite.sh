@@ -137,7 +137,7 @@ wp theme uninstall twentysixteen
 wp theme uninstall twentyfourteen 
 wp theme uninstall twentyfifteen 
 
-chmod -R 777 $DOCUMENT_ROOT
+chmod -R 755 $DOCUMENT_ROOT
 
 
 #Settings for Autoptimize
