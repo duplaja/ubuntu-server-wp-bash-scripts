@@ -3,6 +3,9 @@
 # .htaccess 
 (download, and keep in the same folder as your setupsite.sh script)
  
+#setupsite-tui.sh (new)
+
+Same as setupsite.sh, but all done through a TUI (whiptail). Options to either use theme or not, use LetsEncrypt or not, and pick which plugins you want to install.
  
 # setupsite.sh : 
 Designed for Ubuntu 16.04 or other Debian system. Requires LetsEncrypt and WP-CLI to be installed. The DNS MUST be set up for the SSL cert to work correctly.
