@@ -90,18 +90,19 @@ else
 
 fi
 
-HTTPS_URL="https://"$SITE_URL
 
 ##Checks if you want SSL Enabled
 if (whiptail --title "SSL Enabled?" --yesno "Would you like to automatically enable SSL via LetsEncrypt for your site now? (domain must be already pointing to the correct IP)" 8 78) then
 
     echo "LetsEncrypt SSL: Yes" >> fun.txt
 
-    USE_SSL=true    
+    USE_SSL=true   
+    WP_SITE_URL="https://"$SITE_URL
 
 else
     echo "LetsEncrypt SSL: No" >> fun.txt
     USE_SSL=false
+    WP_SITE_URL=$SITE_URL
 fi
 
 
@@ -260,7 +261,7 @@ wp core download --allow-root
 wp core config --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=localhost --dbprefix=$DB_PREFIX --allow-root
 
 ##Installs Wordpress, using settings above
-wp core install --url=$HTTPS_URL --title=$SITE_TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --allow-root
+wp core install --url=$WP_SITE_URL --title=$SITE_TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL --allow-root
 
 
 ##Installs theme if selected
