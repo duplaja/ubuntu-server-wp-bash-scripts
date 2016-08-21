@@ -25,41 +25,41 @@ fi
 ##Stuff used for MySQL Database / User Creation (account must have database / user creation privileges)
 
 MYSQL_CREATE_USER=$(whiptail --inputbox "Please enter the account name for a MySQL account that has user / database create privilages: " 8 78 root --title "MySQL Account Name w/ Create Privilages" 3>&1 1>&2 2>&3)
-# A trick to swap stdout and stderr.
-# Again, you can pack this inside if, but it seems really long for some 80-col terminal users.
+
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
     echo "MySQL User: " $MYSQL_CREATE_USER >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
 
 MYSQL_CREATE_PASSWORD=$(whiptail --inputbox "Please enter the password for the MySQL account on the previous screen: " 8 78 pw --title "MySQL Account Password w/ Create Privilages" 3>&1 1>&2 2>&3)
-# A trick to swap stdout and stderr.
-# Again, you can pack this inside if, but it seems really long for some 80-col terminal users.
+
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
     echo "MySQL Password: " $MYSQL_CREATE_PASSWORD >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
 #Stuff used for apache config file
 
 NO_WWW_SITE_URL=$(whiptail --inputbox "Please your site URL, without the leading www. If this is a subdomain, enter the whole url (sub.example.com) : " 8 78 example.com --title "No WWW URL" 3>&1 1>&2 2>&3)
-# A trick to swap stdout and stderr.
-# Again, you can pack this inside if, but it seems really long for some 80-col terminal users.
+
 exitstatus=$?
 
 if [ $exitstatus = 0 ]; then
     echo "Site URL (No www): " $NO_WWW_SITE_URL >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -69,7 +69,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "Directory Path: " $DOCUMENT_ROOT >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -115,7 +116,8 @@ if (whiptail --title "Setup Check" --yesno "Were the settings on the previous bo
     echo "" >> fun.txt
 
 else
-    echo "Chose not to run" > fun.txt
+    echo "Site Setup Aborted"
+    rm fun.txt
     exit 0
 fi
 
@@ -130,7 +132,8 @@ if [ $exitstatus = 0 ]; then
 	DB_USER=$DB_NAME
     echo "WP DB and User: " $DB_NAME >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -144,7 +147,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "DB Prefix: " $DB_PREFIX >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -156,7 +160,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "Site Title: " $SITE_TITLE >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -166,7 +171,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "WP Admin Name: " $ADMIN_USER >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -176,7 +182,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "WP Admin PW: " $ADMIN_PASSWORD >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -186,7 +193,8 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "WP Admin Email: " $ADMIN_EMAIL >> fun.txt
 else
-    echo "User selected Cancel." >> fun.txt
+    rm fun.txt
+    echo "Site Setup Aborted"
     exit 0
 fi
 
@@ -214,7 +222,8 @@ if (whiptail --title "WP Setup Check" --yesno "Were the settings on the previous
     echo "" >> fun.txt
 
 else
-    echo "Chose not to run" > fun.txt
+    echo "Site Setup Aborted"
+    rm fun.txt
     exit 0
 fi
 
