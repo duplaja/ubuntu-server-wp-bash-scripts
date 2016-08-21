@@ -55,7 +55,7 @@ a2ensite $SITE_URL.conf
 service apache2 reload
 
 ##Uses LetsEncrypt to set up SSL for the site (If you haven't pointed your domain yet, comment this line out)
-/opt/letsencrypt/letsencrypt-auto --apache -d $SITE_URL -n
+/opt/letsencrypt/certbot-auto --apache -d $SITE_URL -n
 
 ##sets file perms
 

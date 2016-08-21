@@ -255,10 +255,10 @@ then
 	if $IS_SUB
 	then
 
-		/opt/letsencrypt/letsencrypt-auto --apache -d $SITE_URL -n
+		/opt/letsencrypt/certbot-auto --apache -d $SITE_URL -n
 	else
 
-		/opt/letsencrypt/letsencrypt-auto --apache -d $SITE_URL -d $NO_WWW_SITE_URL -n
+		/opt/letsencrypt/certbot-auto --apache -d $SITE_URL -d $NO_WWW_SITE_URL -n
 	fi
 	
 fi
