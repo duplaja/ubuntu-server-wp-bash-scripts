@@ -291,6 +291,7 @@ whiptail --title "Choose Plugins To Install and Activate" --checklist --separate
 "async-javascript" "Sets js files to be deferred" ON \
 "autoptimize" "Compresses and combines CSS, JS, and HTML Files " ON \
 "tiny-compress-images" "Auto compresses images on upload" ON \
+"cachify" "Simple Cache Plugin" ON \
 "login-lockdown" "Locks out wrong pw attempts by IP" ON \
 "stop-user-enumeration" "Security, prevents leak of admin login" ON \
 "remove-category-url" "Removes category from the url on permalinks" ON \
@@ -310,7 +311,7 @@ whiptail --title "Choose Plugins To Install and Activate" --checklist --separate
 
 while read choice
 do
-	wp plugin install $choice --allow-root
+	wp plugin install $choice --activate --allow-root
 	
 done < results
 rm results
